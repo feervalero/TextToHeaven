@@ -1,0 +1,52 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="bower_components/iron-image/iron-image.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+
+<dom-module id="quick-send">
+	<style is="custom-style">
+		:host {
+			display: block;
+		}
+		img{
+			height: 50px ;
+			width: auto;
+			margin:0px auto;
+		}
+		#imgWrapper{
+			float:right;
+			clear:both;
+		}		
+	</style>
+	<template>
+		<div>
+			<paper-input id="toInput" label="To:" value="{{too::input}}"></paper-input>
+			<paper-textarea id="textArea" char-counter maxlength="200" label="What are you thinking?" value="{{message::input}}"></paper-textarea>
+		</div>
+		<div id="imgWrapper" class="layout horizontal">
+			
+			<img on-tap="abrirMensaje" src="images/nube.png">
+  			
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'quick-send',
+			properties:{
+				message:{
+					type:String,
+					notify:true
+				}
+			},
+			abrirMensaje:function(){
+				var msg = document.querySelector("#textArea").value;
+				console.log(msg);
+				var too = document.querySelector("#toInput").value;
+				document.querySelector('app-router').go('/message/'+msg+'/'+too);
+
+				
+			}
+
+		});
+	</script>
+</dom-module>

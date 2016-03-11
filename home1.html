@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+	<link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+	<link rel="import" href="bower_components/iron-pages/iron-pages.html">
+	<link rel="import" href="top-news.html">
+	<link rel="import" href="quick-send.html">
+	<link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+</head>
+<style>
+	html,body{
+		height:100%;
+		padding: 0;
+		margin:0;
+		font-family: 'Roboto';
+	}
+	paper-scroll-header-panel {
+	  height: 100%;
+	}
+	#content{
+	padding: 10px;
+	}
+</style>
+<body>
+<!--
+A comment describing this element
+
+Example:
+
+    <my-elem></my-elem>
+
+Example:
+
+    <my-elem>
+      <h2>Hello my-elem</h2>
+    </my-elem>
+
+@demo demo/index.html
+-->
+	<paper-scroll-header-panel fixed class="flex">
+		<paper-toolbar>
+			<div>My App</div>
+		</paper-toolbar>
+		
+			<div id="content">
+				<quick-send></quick-send>
+				<top-news></top-news>
+
+			</div>
+		
+	</paper-scroll-header-panel>
+
+
+
+</body>
+</html>

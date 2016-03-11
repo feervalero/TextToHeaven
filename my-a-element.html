@@ -1,0 +1,24 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="my-a-element">
+<template>
+	<h1>HeaderA</h1>
+	<h1>{{valuea}}</h1>		
+	<input type="text" value="{{valuea::input}}">
+</template>
+</dom-module>
+<script>
+	(function(){
+		Polymer({
+			is:'my-a-element',
+			properties:{
+				valuea:{
+					type:String,
+					value:'Fer'
+					
+
+				}
+			}
+		});
+	})();
+</script>

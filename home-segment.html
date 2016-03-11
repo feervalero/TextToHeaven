@@ -1,0 +1,19 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="top-news.html">
+<link rel="import" href="quick-send.html">
+<dom-module id="home-segment">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+		<quick-send></quick-send>
+		<top-news message="Text"></top-news>
+	</template>
+	<script>
+		Polymer({
+			is: 'home-segment'
+		});
+	</script>
+</dom-module>

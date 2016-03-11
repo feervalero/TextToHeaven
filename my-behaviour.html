@@ -1,0 +1,54 @@
+<!--
+A comment describing this element
+
+Example:
+
+    <my-elem></my-elem>
+
+Example:
+
+    <my-elem>
+      <h2>Hello my-elem</h2>
+    </my-elem>
+
+@demo demo/index.html
+-->
+<link rel="import" href="bower_components/polymer/polymer.html">
+<dom-module id="my-behaviour">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+		<span id="fullName">{{full}}</span><br>
+		<input type="text" value="{{first::input}}">
+		<input type="text" value="{{last::input}}">
+		<button on-tap="alertame">Click Me</button>
+	</template>
+	<script>
+		Polymer({
+			is: 'my-behaviour',
+			properties:{
+				first:{
+					type:String,
+					notify:true
+				},
+				last:{
+					type:String,
+					notify:true	
+				},
+				full:{
+					type:String,
+					computed:'getFullName(first, last)'
+				}
+			},
+			getFullName:function(first, last){
+				return first+' '+last;
+			},
+			alertame:function(){
+			
+			}
+		});
+	</script>
+</dom-module>

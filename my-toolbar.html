@@ -1,0 +1,28 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="my-toolbar">
+	<style>
+    .container {
+      @apply(--layout-horizontal);
+    }
+    .flexchild {
+      @apply(--layout-flex);
+    }
+  </style>
+
+  <template>
+
+    <div class="container">
+      <div>One</div>
+      <div class="flexchild">Two</div>
+      <div>Three</div>
+    </div>
+    </template>
+
+</dom-module>
+<script>
+	Polymer({
+		is:'my-toolbar'
+	});
+
+</script>

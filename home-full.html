@@ -1,0 +1,24 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+<dom-module id="home-full">
+	<style>
+		:host {
+			display: block;
+			height: 100%;
+		}
+	</style>
+	<template>
+			<paper-scroll-header-panel condenses class="flex">
+				<paper-toolbar>
+					<div>My App</div>
+				</paper-toolbar>
+				<div>Page content</div>
+			</paper-scroll-header-panel>
+	</template>
+	<script>
+		Polymer({
+			is: 'home-full'
+		});
+	</script>
+</dom-module>

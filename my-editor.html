@@ -1,0 +1,120 @@
+<link rel="import" href="app-theme.html">
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="bower_components/toggle-icon-master/toggle-icon.html">
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+<link rel="import" href="my-card.html">
+<dom-module id="my-editor">
+	<style is="custom-style">
+	  .toggle-button {
+	    --toggle-icon: {
+	      color: green;
+	    };
+	    --toggle-icon-active: {
+	      color: var(--paper-red-500);
+	    };
+	  }
+	  paper-card{
+	  	height: 250px;
+	  	width: 250px;
+	  	
+	  }
+	  section paper-card{
+	  	height:100px;
+	  	width:100px;
+	  }
+	 
+
+	</style>
+
+
+
+	<template>
+		<my-card id="card2" title="{{todetination}}" message="{{message}}" image="{{bck}}"></my-card>
+
+		<paper-input label="To..." value="{{todetination::input}}"></paper-input>
+		<paper-textarea label="Message..." value="{{message::input}}" char-counter maxlength="200"></paper-textarea>
+		<toggle-icon class="toggle-button" animation="flip-vertical" icon="home"></toggle-icon>
+		<toggle-icon class="toggle-button" animation="flip-vertical" icon="menu"></toggle-icon>
+		<toggle-icon class="toggle-button" animation="flip-vertical" icon="cloud"></toggle-icon>
+		<toggle-icon class="toggle-button" animation="flip-vertical" icon="extension"></toggle-icon>
+		<section>
+			<paper-card  image="images/bck1.jpg" data-image="bck1.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck1">
+			  <paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+			<paper-card  image="images/bck2.jpg" data-image="bck2.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck2">
+			  <paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+			<paper-card  image="images/bck3.jpg" data-image="bck3.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck3">
+			  <paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+			<paper-card  image="images/bck4.jpg" data-image="bck4.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck4">
+			  <paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+			<paper-card  image="images/bck5.jpg" data-image="bck5.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck5">
+			<paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is:'my-editor',
+		properties:{
+			todetination:{
+				type:String,
+				value:"Fernando valero niño garza perez nbuevo leon",
+				notify:true
+			},
+			message:{
+				type:String,
+				value:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut dedededed",
+				notify:true
+			},
+			bck:{
+				type:String,
+				value:"images/bck1.jpg",
+				notify:true
+			}
+		},
+		
+		bck1:function(){
+			var a = document.querySelector("#card2");
+			a.image="images/bck1.jpg";
+		},
+		bck2:function(){
+			var a = document.querySelector("#card2");
+			a.image="images/bck2.jpg";
+		},
+		bck3:function(){
+			var a = document.querySelector("#card2");
+			a.image="images/bck3.jpg";
+		},
+		bck4:function(){
+			var a = document.querySelector("#card2");
+			a.image="images/bck4.jpg";
+		},
+		bck5:function(){
+			var a = document.querySelector("#card2");
+			a.image="images/bck5.jpg";
+		},
+
+
+
+	});
+</script>

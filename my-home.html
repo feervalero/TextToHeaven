@@ -1,0 +1,128 @@
+<link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="bower_components/app-router/app-router.html">
+
+<dom-module id="my-home">
+<style is="cutom-style">
+		paper-scroll-header-panel{
+			height:100%;
+		}
+		iron-autogrow-textarea{
+			
+			width:100%;
+			
+		}
+		.flex{
+			 @apply(--layout-flex);
+
+		}
+		paper-toolbar div{
+			text-align: center;
+		}
+		#cloud{
+			color:black;
+			background-image: url('images/cloud 1.png');
+		  	background-size: 154% auto;
+			background-position: -170px -92px;
+			position: fixed;
+			width:100%;
+			height: 157px;
+			left:0;
+			
+		}
+		paper-card{
+			margin:10%;
+		}
+		paper-toolbar{
+			background-color: #03A9F4;
+		}
+		paper-tabs{
+			position:fixed;
+			bottom:0;
+			left: 0;
+			width:100%;
+			color:white;
+			background-color: #03A9F4;
+		}
+</style>
+<template>
+	<paper-scroll-header-panel class="flex" fixed>
+		<paper-toolbar class="vertical layout">
+			<paper-icon-button icon="menu"></paper-icon-button>
+			<div class="flex">TextToHeaven</div>
+			<paper-icon-button icon="face"></paper-icon-button>
+		</paper-toolbar>
+		<!-- <span id="cloud">
+			<iron-autogrow-textarea rows="8" placeholder="What are you thinking?"></iron-autogrow-textarea>
+			
+		</span> -->
+		<section fullbleed>
+			<app-router>
+				<app-route path="/user" 	import="user-segment.html"></app-route>
+				<app-route path="/" 		import="home-segment.html"></app-route>
+				<app-route path="/settings" import="settings-segment.html"></app-route>
+				<app-route path="/message/:message/:too" import="message-segment.html"></app-route>
+			</app-router>
+		</section>
+
+	</paper-scroll-header-panel>
+	<paper-tabs>
+		<paper-tab on-tap="openUser"><paper-icon-button icon="account-circle"></paper-icon-button></paper-tab>
+		
+		<paper-tab on-tap="openHome"><paper-icon-button icon="home"></paper-icon-button></paper-tab>
+		
+		<paper-tab on-tap="openSettings"><paper-icon-button icon="settings"></paper-icon-button></paper-tab>
+	</paper-tabs>
+</template>
+
+<script>
+Polymer({
+	is:'my-home',
+	ready:function(){
+		document.querySelector('app-router').go('/');
+	},
+	openUser:function(){
+		console.log("user");
+		document.querySelector('app-router').go('/user');
+	},
+	openHome:function(){
+		document.querySelector('app-router').go('/');
+	},
+	openSettings:function(){
+		document.querySelector('app-router').go('/settings');
+	}
+	
+});
+
+</script>
+</dom-module>
+		 <!--  <section data-route="home" >
+		  	  <iron-ajax auto
+		          url="data2.json"
+		          handle-as="json"
+		          last-response="{{ajaxResponse}}"></iron-ajax>
+	           <template is="dom-repeat" items="[[ajaxResponse]]">
+		          <div class="horizontal-section">
+		          	<paper-card heading="{{item.name}}" image="" elevation="3" animated-shadow="true">
+		          	  <div class="card-content">
+		          	  	{{item.message}}
+		          	  	<span>{{item.date}}</span>
+		          	  </div>
+		          	  <div class="card-actions">
+		          		<paper-icon-button icon="favorite-border"></paper-icon-button>
+		          		<paper-icon-button icon="communication:comment"></paper-icon-button>
+		          	  </div>
+		          	</paper-card>
+		            
+		          </div>
+		        </template>
+		  </section>	 -->

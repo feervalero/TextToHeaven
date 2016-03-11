@@ -1,0 +1,52 @@
+<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+	<link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+	<link rel="import" href="styles/app-theme.html">
+	<link rel="import" href="styles/shared-styles.html">
+	<link rel="import" href="bower_components/font-roboto/roboto.html">
+	<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+	<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+	<link rel="import" href="bower_components/polymer/polymer.html">
+	<link rel="import" href="bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
+	<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+	<link rel="import" href="bower_components/paper-tab/paper-tab.html">
+	<link rel="import" href="bower_components/iron-pages/iron-pages.html">
+
+<dom-module id="full-home">
+
+<template >
+	<paper-scroll-header-panel class="flex">
+		<paper-toolbar class="">
+			<paper-icon-button icon="menu"></paper-icon-button>
+			<div>Text to heaven</div>
+		</paper-toolbar>
+		<!-- <span id="cloud">
+			<iron-autogrow-textarea rows="8" placeholder="What are you thinking?"></iron-autogrow-textarea>
+			
+		</span> -->
+		<section fullbleed>
+		<iron-pages selected="{{pageSelector}}">
+		  <div>Profile</div>
+		  <div>Two</div>
+		  <div>Home</div>
+		  <div>Three</div>
+		  <div>Settings</div>
+		</iron-pages>
+		</section>
+
+	</paper-scroll-header-panel>
+	<paper-tabs selected="{{pageSelector}}">
+		<paper-tab><paper-icon-button icon="account-circle"></paper-icon-button></paper-tab>
+		<paper-tab><paper-icon-button icon="acount-circle"></paper-icon-button></paper-tab>
+		<paper-tab><paper-icon-button icon="home"></paper-icon-button></paper-tab>
+		<paper-tab><paper-icon-button icon="acount-circle"></paper-icon-button></paper-tab>
+		<paper-tab><paper-icon-button icon="settings"></paper-icon-button></paper-tab>
+	</paper-tabs>
+	</template>
+</dom-module>
+	<script>
+	(function(){
+		(Polymer(){
+			is:'full-home'
+		});
+	})();
+	</script>

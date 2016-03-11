@@ -1,0 +1,20 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+
+<dom-module id="login-button-fb">
+<style type="text/css">
+	*{
+		font-family: 'Roboto';
+	}
+</style>
+<template>
+	<paper-button style="background-color:#3a5795;color:white;" raised scope="public_profile,email" onlogin="checkLoginState();">Login with Facebook</paper-button>
+</template>
+<script>
+	(function(){
+		Polymer({
+			is:'login-button-fb'
+		});
+	})();
+</script>
+</dom-module>

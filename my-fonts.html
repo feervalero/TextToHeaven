@@ -1,0 +1,193 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<dom-module id="my-fonts">
+	<template>
+	<style>
+		:host {
+			display: block;
+		}
+		#header paper-card{
+			width:250px;
+			height:250px;
+			max-height: 250px;
+			max-width: 250px;
+			font-size: 11px;
+			text-align: justify;
+
+		}
+		#selector paper-card{
+			width:80px;
+			height:80px;
+			max-height: 80px;
+			max-width: 80px;
+			display:inline-block;
+		    *display:inline;
+		    *zoom:1;
+		    vertical-align:top;
+		}
+		#selector{
+			overflow-x: scroll;
+	        overflow-y: hidden;
+	        height: 80px;
+    		white-space:nowrap
+		}
+		#username{
+			position: absolute;
+		  	bottom: 0px;
+		  	right: 0px;
+		  	padding: 10px;
+		  	font-style: italic;
+		  	font-size: 8px;
+		}
+		
+		#header{
+			width:100%;
+			text-align: center;
+		}
+		.fontSelectorButton{
+			background:none;
+			border:0;
+		}
+		
+		.innerFonta{
+			
+			font-family: 'Tahoma';
+		}
+		.innerFontb{
+			
+			font-family: 'Roboto';
+		}
+		.innerFontc{
+			
+			font-family: 'Arial';
+		}
+		.innerFontd{
+			
+			font-family: 'Courier';
+		}
+		paper-button{
+			min-width: 1px;
+			text-transform: lowercase;
+		}
+	</style>
+	<div id="wrapperfonts">
+		<div id="header">
+			<paper-card id="mycard" heading="{{too}}"  width="250px" height="250px" elevation="1" animated-shadow="false">
+			  <div class="card-content">
+			  	"<span>{{message}}</span>"
+			  </div>
+			  <span id="username">{{username}}</span>
+			</paper-card>
+			<br>
+			<hr>
+			
+		</div>
+					<paper-button on-tap="t1" class="innerFonta"raised>a</paper-button>
+					<paper-button on-tap="t2" class="innerFontb"raised>a</paper-button>
+					<paper-button on-tap="t3" class="innerFontc"raised>a</paper-button>
+					<paper-button on-tap="t4" class="innerFontd"raised>a</paper-button>
+					
+			<br>
+			<hr>
+		<div id="selector">
+			<paper-card  image="images/bck1.jpg" data-image="bck1.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck1">
+			  <paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+			<paper-card  image="images/bck2.jpg" data-image="bck2.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck2">
+			  <paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+			<paper-card  image="images/bck3.jpg" data-image="bck3.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck3">
+			  <paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+			<paper-card  image="images/bck4.jpg" data-image="bck4.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck4">
+			  <paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+			<paper-card  image="images/bck5.jpg" data-image="bck5.jpg" width="100px" height="100px" elevation="3" animated-shadow="false" on-tap="bck5">
+			<paper-ripple>
+				  <div class="card-content"></div>
+			</paper-ripple>
+			</paper-card>
+		</div>
+	</div>	
+	</template>
+	<script>
+		Polymer({
+			is: 'my-fonts',
+			ready:function(){
+
+			},
+			t1:function(){
+				var a = document.querySelector("#mycard");
+				a.style.fontFamily="Tahoma";
+				
+			},
+			t2:function(){
+				var a = document.querySelector("#mycard");
+				a.style.fontFamily="Roboto";
+			},
+			t3:function(){
+				var a = document.querySelector("#mycard");
+				a.style.fontFamily="Arial";
+			},
+			t4:function(){
+				var a = document.querySelector("#mycard");
+				a.style.fontFamily="Courier";
+				a.style.fontSize="10px";
+			},
+			bck1:function(){
+				var a = document.querySelector("#mycard");
+				a.style.backgroundImage = "url('images/bck1.jpg')";
+				a.style.backgroundSize="250px 250px";
+			},
+			bck2:function(){
+				var a = document.querySelector("#mycard");
+				a.style.backgroundImage = "url('images/bck2.jpg')";
+				a.style.backgroundSize="250px 250px";
+			},
+			bck3:function(){
+				var a = document.querySelector("#mycard");
+				a.style.backgroundImage = "url('images/bck3.jpg')";
+				a.style.backgroundSize="250px 250px";
+			},
+			bck4:function(){
+				var a = document.querySelector("#mycard");
+				a.style.backgroundImage = "url('images/bck4.jpg')";
+				a.style.backgroundSize="250px 250px";
+			},
+			bck5:function(){
+				var a = document.querySelector("#mycard");
+				a.style.backgroundImage = "url('images/bck5.jpg')";
+				a.style.backgroundSize="250px 250px";
+			},
+			properties:{
+				username:{
+					type:String,
+					value:"Fernando Valero",
+					nofity:true
+				},
+				message:{
+					type:String,
+					nofity:true
+				},
+				too:{
+					type:String,
+					nofity:true
+				},
+
+
+			}
+		});
+	</script>
+</dom-module>

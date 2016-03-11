@@ -1,0 +1,27 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="my-fonts.html">
+<dom-module id="message-segment">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+		<my-fonts message="{{message}}" too="{{too}}"></my-fonts>
+	</template>
+	<script>
+		Polymer({
+			is: 'message-segment',
+			properties:{
+				message:{
+					type:String,
+					notify:true
+				},
+				too:{
+					type:String,
+					notify:true
+				}
+			}
+		});
+	</script>
+</dom-module>

@@ -1,0 +1,12 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<dom-module id="my-element">
+	<template>
+		<h2>{{variable1}}</h2>
+		<input type="text" value="{{variable1::input}}">
+	</template>
+	<script>
+		Polymer({
+			is:'my-element'
+		});
+	</script>
+</dom-module>

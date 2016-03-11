@@ -1,0 +1,44 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/app-router/app-router.html">
+<link rel="import" href="bower_components/pushstate-anchor/pushstate-anchor.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<dom-module id="my-route">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+		<div>
+			<a href="#/user">User</a>
+			<a href="#/contact">Contact</a>
+			<a href="#/user/{{username}}">Check User</a>
+
+
+			<app-router>
+				<app-route path="/user" import="my-user.html"></app-route>
+				<app-route path="/user/:username" import="my-user.html"></app-route>
+				<app-route path="/contact" import="my-contact.html"></app-route>
+			</app-router>
+			<paper-button on-tap="openUser" raised>User</paper-button>
+			<paper-button on-tap="openContact" raised>Contact</paper-button>
+			<paper-button on-tap="username" raised>User Info</paper-button>
+
+			<input type="text" value="{{username::input}}">
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'my-route',
+			openUser:function(){
+				document.querySelector('app-router').go('/user');
+			},
+			openContact:function(){
+				document.querySelector('app-router').go('/contact');
+			},
+			username:function(){
+				document.querySelector('app-router').go('/user');
+			}
+		});
+	</script>
+</dom-module>
