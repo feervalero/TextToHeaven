@@ -9,6 +9,7 @@
 <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="bower_components/app-router/app-router.html">
 
 <dom-module id="my-home">
@@ -21,6 +22,7 @@
 			width:100%;
 			
 		}
+		
 		.flex{
 			 @apply(--layout-flex);
 
@@ -38,6 +40,11 @@
 			height: 157px;
 			left:0;
 			
+		}
+		paper-fab{
+		    position:fixed;
+		    bottom:60px;
+		    right:10px;
 		}
 		paper-card{
 			margin:10%;
@@ -66,14 +73,16 @@
 			
 		</span> -->
 		<section fullbleed>
-			<app-router>
-				<app-route path="/user" 	import="user-segment.html"></app-route>
-				<app-route path="/" 		import="home-segment.html"></app-route>
-				<app-route path="/settings" import="settings-segment.html"></app-route>
+			<app-router id="appR1">
+				<app-route path="/user" 		import="user-segment.html"		></app-route>
+				<app-route path="/send" 		import="send-segment.html"		></app-route>
+				<app-route path="/home" 			import="home-segment.html"		></app-route>
+				<app-route path="/set" 	import="settings-segment.html"	></app-route>
 				<app-route path="/message/:message/:too" import="message-segment.html"></app-route>
 			</app-router>
 		</section>
-
+		<paper-fab on-tap="openEditor" icon="add"></paper-fab>
+	
 	</paper-scroll-header-panel>
 	<paper-tabs>
 		<paper-tab on-tap="openUser"><paper-icon-button icon="account-circle"></paper-icon-button></paper-tab>
@@ -88,17 +97,22 @@
 Polymer({
 	is:'my-home',
 	ready:function(){
-		document.querySelector('app-router').go('/');
+		document.querySelector('#appR1').go('/home');
+		
 	},
 	openUser:function(){
-		console.log("user");
-		document.querySelector('app-router').go('/user');
+		document.querySelector('#appR1').go('/user');
 	},
 	openHome:function(){
-		document.querySelector('app-router').go('/');
+		document.querySelector('#appR1').go('/home');
 	},
 	openSettings:function(){
-		document.querySelector('app-router').go('/settings');
+		document.querySelector('#appR1').go('/set');
+
+	},
+	openEditor:function(){
+		document.querySelector("#appR1").go('/send');
+		
 	}
 	
 });
@@ -126,3 +140,4 @@ Polymer({
 		          </div>
 		        </template>
 		  </section>	 -->
+    

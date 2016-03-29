@@ -1,0 +1,39 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/app-router/app-router.html">
+
+<dom-module id="app-base">
+	<template>
+		<style>
+		body,html{
+			    height: 100%;
+			}
+			:host {
+				display: block;
+				height:100%;
+			}
+		</style>
+
+		<app-router>
+			<app-route path="/login" import="login-new.html"></app-route>
+			<app-route path="/home" import="my-home.html">
+				<my-home pageSelector="1"></my-home>
+			</app-route>
+		</app-router>
+
+	
+
+	</template>
+	<script>
+		(function() {
+			'use strict';
+
+			Polymer({
+				is: 'app-base',
+				ready:function(){
+					//document.querySelector("app-router").go("/home");
+				}
+			});
+		})();
+	</script>
+
+</dom-module>

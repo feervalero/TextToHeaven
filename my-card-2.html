@@ -1,0 +1,73 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+
+<dom-module id="my-card-2">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+			paper-card{
+				width:250px;
+				height:250px;
+				max-height: 250px;
+				max-width: 250px;
+				font-size: 11px;
+				text-align: justify;
+			}
+			
+		</style>
+		<paper-card font$="{{font}}" id="mycard" heading="{{too}}" background$="{{background}}" width="250px" height="250px" elevation="1" animated-shadow="false">
+		  <div class="card-content">
+		  	"<span >{{message}}</span>"
+		  </div>
+		  <span id="username">{{username}}</span>
+		</paper-card>
+		<style>
+			paper-card[font="1"]{
+				font-family:'Tahoma';
+			}
+			paper-card[font="2"]{
+				font-family:'Roboto';
+			}
+			paper-card[font="3"]{
+				font-family:'Arial';
+			}
+			paper-card[font="4"]{
+				font-family:'Courier';
+				font-size: 10px
+			}
+			paper-card[background="1"]{
+				background:url("images/bck1.jpg");
+				background-size: 250px 250px;
+			}
+			paper-card[background="2"]{
+				background:url("images/bck2.jpg");
+				background-size: 250px 250px;
+			}
+			paper-card[background="3"]{
+				background:url("images/bck3.jpg");
+				background-size: 250px 250px;
+			}
+			paper-card[background="4"]{
+				background:url("images/bck4.jpg");
+				background-size: 250px 250px;
+			}
+			paper-card[background="5"]{
+				background:url("images/bck5.jpg");
+				background-size: 250px 250px;
+			}
+
+		</style>
+	</template>
+	<script>
+		(function() {
+			'use strict';
+
+			Polymer({
+				is: 'my-card-2'
+				
+			});
+		})();
+	</script>
+</dom-module>

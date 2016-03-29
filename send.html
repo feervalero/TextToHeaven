@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+	<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+	<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+	<link rel="import" href="bower_components/paper-input/paper-textarea.html">
+	<link rel="import" href="bower_components/paper-button/paper-button.html">
+	<link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+	<link rel="import" href="bower_components/iron-icons/social-icons.html">
+	<style type="text/css">
+	html,body{
+		margin:0px;
+		padding:0px;
+		height:100%;
+		font-family: 'Roboto'
+	}
+	#toolbarBottom{
+		border-top: 1px solid gray;
+	    position: fixed;
+	    width: 100%;
+	    bottom: 0;
+	    color:gray;
+	    background-color: white;
+	
+	}
+	#toolbarTop{
+		color:blue;
+		background-color: #DFDFDF;
+	}
+	paper-textarea{
+		padding: 10px;
+		text-indent:5px;
+	}
+	
+	paper-button{
+		background-color: #22A122;
+		color:white;
+	}
+	</style>
+</head>
+<body>
+	<paper-toolbar id="toolbarTop" class="layout vertical">
+		<paper-icon-button icon="close"></paper-icon-button>
+		<span class="flex"></span>
+		<img src="images/cloud-icon.png" height="50px" alt="avatar">
+	</paper-toolbar>	
+	<content>
+		<paper-textarea></paper-textarea>
+	</content>
+	<paper-toolbar id="toolbarBottom" class="layout vertical">
+		<paper-icon-button icon="social:public"></paper-icon-button>
+		<paper-icon-button icon="social:person"></paper-icon-button>
+		<span class="flex"></span>
+		<paper-button raised>SEND</paper-button>
+	</paper-toolbar>
+</body>
+</html>

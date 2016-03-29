@@ -1,0 +1,79 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/firebase-element/firebase-collection.html">
+<link rel="import" href="bower_components/firebase-element/firebase-document.html">
+
+<dom-module id="firebase-method">
+<template>
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	
+	<paper-input label="name" value="{{userid}}"></paper-input>
+	<paper-input label="name" value="{{lastname}}"></paper-input>
+
+	<h3> Hola <span>{{name}}</span> <span>{{lastname}}</span></h3>
+
+	<template is="dom-bind">
+        <firebase-collection
+        id="fire"
+          location="https://texttoheaven.firebaseio.com/users/010101/messages"
+          data="{{messages}}"></firebase-collection>
+        <template is="dom-repeat" items="[[messages]]" as="message">
+          <h1>[[message.text]]</h1>
+        </template>
+        <script>
+        	var st = "https://texttoheaven.firebaseio.com/users/"+this.userid+"/messages";
+			console.log("URL: "+st);
+			this.locationurl=st;
+			var userid=this.userid;
+        </script>
+      </template>
+      <paper-input label="new message" value="{{messagesend}}"></paper-input>
+      <paper-button on-tap="mandarmensaje" raised>send</paper-button>
+</template>
+<script>
+	Polymer({
+		is: 'firebase-method',
+		properties:{
+			name:{
+				type:String,
+				value:"Fernando",
+				notify:true
+			},
+			userid:{
+				type:String,
+				notify:true
+			},
+			message:{
+				type:String,
+				notify:true
+			},
+			locationurl:{
+				type:String,
+				notify:true	
+			}
+		},
+		ready:function(){
+		/*	var a = new Firebase("https://texttoheaven.firebaseIO.com/messages/"+this.userid);
+			var userdata = {
+				name:this.name,
+				userid:this.userid
+			}
+			a.update(userdata);
+*/
+		var st = "https://texttoheaven.firebaseio.com/users/"+this.userid+"/messages";
+		console.log("URL: "+st);
+		
+
+		},
+		mandarmensaje:function(){
+			console.log(this.userid);
+		
+		}
+
+	});
+</script>
+</dom-module>

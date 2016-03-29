@@ -11,6 +11,7 @@
 <link rel="import" href="bower_components/paper-input/paper-input.html">
 <link rel="import" href="bower_components/paper-button/paper-button.html">
 <link rel="import" href="app-theme.html">
+<link rel="import" href="bower_components/app-router/app-router.html">
 
 <style type="text/css">
 	body,html{
@@ -22,32 +23,28 @@
     border-radius: 50px;
   }
   #top{
-    height: 60%;
+    height: 100%;
     width: 100%;
     background:url("images/numa.png");
     background-size: auto 100%;
+    text-align: center;
   }
-  #bottom{
-    height: 40%;
-  }
+
   .form2{
-    position: absolute;
     width:100%;
     bottom:45%;
     left:0;
   }
-
+  #logo{
+    text-align: center; 
+    margin:0px auto;
+  }
 </style>
 <style is="custom-style">
   paper-input{
-    margin:10px;
+    margin:5px 5%;
   }
-  paper-button{
-    margin:10px;
-    float:right;
-
-  }  
-
+  
   :root {
     --paper-input-container-input: {
       font-size: 24px;
@@ -55,12 +52,13 @@
     };
   }
   login-button-fb{
-    position: fixed;
   text-align: center;
-  bottom: 0px;
-  left: 0px;
-  margin: 10px;
+  
   width: 100%;
+  }
+  paper-button{
+    width: 60%;
+    margin:20px 0px;
   }
 </style>
 </head>
@@ -148,8 +146,9 @@
     });
     FB.api('/me/picture',function(response){
     	console.log(response);
-		console.log(response.data.url);
+		  console.log(response.data.url);
     	document.getElementById('coverImg').innerHTML = '<img src="'+response.data.url+'">';
+      document.querySelector('app-router').go('/');
     });
   }
 </script>
@@ -161,19 +160,23 @@
 -->
 
 <div id="top">
+  <img id="logo" src="images/cloud-icon.png" width="50%" alt="">
   <span class="form2">
     <paper-input label="username"></paper-input>
     <paper-input label="password" type="password"></paper-input>
   </span>
-</div>
 
-<div id="bottom">
   <paper-button style="background-color:#8BC34A;"raised>Login</paper-button>
   <div id="status">
   </div>
   <div id="coverImg"></div>
   
 </div>
-
+  <app-router>
+        <app-route path="/user"   import="user-segment.html"></app-route>
+        <app-route path="/"     import="home-segment.html"></app-route>
+        <app-route path="/settings" import="settings-segment.html"></app-route>
+        <app-route path="/message/:message/:too" import="message-segment.html"></app-route>
+  </app-router>
 </body>
 </html>

@@ -1,0 +1,80 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="login-button-fb.html">
+
+<dom-module id="login-new">
+  <template>
+    <style>
+    :host {
+        display: block;
+        height:100%;
+      }
+  body,html{
+    height: 100%;
+    margin:0px;
+    font-family: 'Roboto';
+  }
+  #coverImg img{
+    border-radius: 50px;
+  }
+  #top{
+    height: 100%;
+    width: 100%;
+    background:url("images/numa.png");
+    background-size: auto 100%;
+    text-align: center;
+  }
+
+  .form2{
+    width:100%;
+    bottom:45%;
+    left:0;
+  }
+  #logo{
+    text-align: center; 
+    margin:0px auto;
+  }
+</style>
+<style is="custom-style">
+  paper-input{
+    margin:5px 5%;
+  }
+  
+  :root {
+    --paper-input-container-input: {
+      font-size: 24px;
+      
+    };
+  }
+  login-button-fb{
+  text-align: center;
+  
+  width: 100%;
+  }
+  paper-button{
+    width: 60%;
+    margin:20px 0px;
+  }
+    </style>
+     <div id="top">
+        <img id="logo" src="images/cloud-icon.png" width="50%" alt="">
+        <span class="form2">
+          <paper-input label="username"></paper-input>
+          <paper-input label="password" type="password"></paper-input>
+        </span>
+        <paper-button style="background-color:#8BC34A;"raised>Login</paper-button>
+        <div id="status">
+        </div>
+        <div id="coverImg"></div>
+      </div>
+  </template>
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'login-new'
+      });
+    })();
+  </script>
+
+</dom-module>
